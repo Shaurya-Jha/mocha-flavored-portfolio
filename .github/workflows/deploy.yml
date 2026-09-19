@@ -1,4 +1,4 @@
-name: Deploy to Github Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -33,7 +33,7 @@ jobs:
           node-version: 22
           cache: pnpm
 
-      - name: Install dependecies
+      - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Build
@@ -44,8 +44,23 @@ jobs:
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
-        with: 
+        with:
           path: ./dist
 
-      - name: Deploy
+  deploy:
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
