@@ -1,11 +1,6 @@
 import type { Component } from "solid-js";
-import ScrollToTop from "./components/scroll-to-top";
-import About from "./components/about";
-import Work from "./components/work";
-import Projects from "./components/projects";
 import { MetaProvider, Title } from "@solidjs/meta";
-import Certifications from "./components/certifications";
-import { Skills } from "./components/skills";
+import { Navbar } from "./components/new/Navbar";
 
 const App: Component = () => {
   return (
@@ -15,24 +10,10 @@ const App: Component = () => {
         <Title>Portfolio</Title>
       </MetaProvider>
 
-      <main class="max-w-[46rem] mx-auto">
-        {/* about me */}
-        <About />
-
-        {/* work */}
-        <Work />
-
-        {/* projects / freelance works. can add other pet projects later*/}
-        <Projects />
-
-        {/* what i work with */}
-        <Skills />
-
-        {/* certifications */}
-        <Certifications />
-
-        {/* contact */}
-        <ScrollToTop />
+      <main class="flex flex-col min-h-screen w-full box-border p-4">
+        <div class="border h-full w-full flex-1">
+          <Navbar />
+        </div>
       </main>
     </>
   );
