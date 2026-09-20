@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+body {
+    background-color: #FFF0D1;
+}
+
+.p-text {
+    color: #664343;
+}
