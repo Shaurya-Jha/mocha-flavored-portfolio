@@ -181,3 +181,27 @@ export const SKILLS: Skill[] = [
     values: ['Docker Desktop', 'Postman', 'Orbstack', 'VS Code', 'Zed']
   },
 ]
+
+interface NavLinks {
+  name: string;
+  path: string;
+}
+
+export const NAVLINKS: NavLinks[] = [
+  {
+    name: 'work',
+    path: '/work'
+  },
+  {
+    name: 'projects',
+    path: '/projects'
+  },
+  {
+    name: 'skills',
+    path: '/skills'
+  },
+  {
+    name: 'certifications',
+    path: '/certifications'
+  },
+]
